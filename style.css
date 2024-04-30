@@ -1,3 +1,7 @@
+.companyName {
+  color: #f82586;
+}
+
 .button-color {
   background-color: #f82586 !important;
   transition: background-color 0.3s ease;
@@ -7,4 +11,12 @@
 .button-color:hover {
   color: #f82586 !important;
   background-color: black !important;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+.graduationPage {
+  color: #f82586;
 }
