@@ -3,9 +3,13 @@ body {
 }
 
 .companyName {
-  color: #f0dfdb;
+  color: #f0dfdb !important;
   font-size: 40px;
   font-family: "Fredericka the Great", serif !important;
+}
+
+.compantName:hover {
+  color: white !important;
 }
 
 .button-color {
