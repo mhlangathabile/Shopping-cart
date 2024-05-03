@@ -9,9 +9,9 @@ body {
 }
 
 .button-color {
-  background-color: #970430 !important;
+  background-color: black !important;
   transition: background-color 0.3s ease;
-  color: black !important;
+  color: #f0dfdb !important;
   font-weight: bold;
   font-family: "Fredericka the Great", serif !important;
 }
@@ -36,11 +36,11 @@ a {
 .prices {
   font-weight: bold;
   font-family: "Quicksand", sans-serif;
+  font-size: 20px;
 }
 
 .heading {
   font-family: "Quicksand", sans-serif;
-  font-weight: bold;
 }
 
 .links {
