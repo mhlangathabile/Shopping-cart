@@ -21,3 +21,11 @@ a {
 .graduationPage {
   color: #f82586;
 }
+
+.images {
+  height: 400px;
+}
+
+.prices {
+  font-weight: bold;
+}
