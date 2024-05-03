@@ -1,11 +1,15 @@
+body {
+  background-color: #f0dfdb;
+}
+
 .companyName {
-  color: #f82586;
+  color: #f0dfdb;
   font-size: 40px;
   font-family: "Fredericka the Great", serif !important;
 }
 
 .button-color {
-  background-color: #f82586 !important;
+  background-color: #970430 !important;
   transition: background-color 0.3s ease;
   color: black !important;
   font-weight: bold;
@@ -13,7 +17,7 @@
 }
 
 .button-color:hover {
-  color: #f82586 !important;
+  color: #f0dfdb !important;
   background-color: black !important;
 }
 
@@ -22,7 +26,7 @@ a {
   color: black;
 }
 .graduationPage {
-  color: #f82586;
+  color: #970430;
 }
 
 .images {
@@ -31,8 +35,14 @@ a {
 
 .prices {
   font-weight: bold;
+  font-family: "Quicksand", sans-serif;
 }
 
 .heading {
   font-family: "Quicksand", sans-serif;
+  font-weight: bold;
+}
+
+.links {
+  padding: 20px;
 }
