@@ -8,10 +8,6 @@ body {
   font-family: "Fredericka the Great", serif !important;
 }
 
-.compantName:hover {
-  color: white !important;
-}
-
 .button-color {
   background-color: black !important;
   transition: background-color 0.3s ease;
