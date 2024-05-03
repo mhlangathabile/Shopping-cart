@@ -1,6 +1,7 @@
 .companyName {
   color: #f82586;
   font-size: 40px;
+  font-family: "Fredericka the Great", serif !important;
 }
 
 .button-color {
@@ -8,6 +9,7 @@
   transition: background-color 0.3s ease;
   color: black !important;
   font-weight: bold;
+  font-family: "Fredericka the Great", serif !important;
 }
 
 .button-color:hover {
@@ -29,4 +31,8 @@ a {
 
 .prices {
   font-weight: bold;
+}
+
+.heading {
+  font-family: "Quicksand", sans-serif;
 }
