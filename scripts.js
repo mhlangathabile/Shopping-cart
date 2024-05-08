@@ -21,5 +21,9 @@ function addToCartButton(event) {
   let imageSrc = cartItem.getElementsByClassName("images")[0].src;
   let cartPrice = cartItem.querySelector(".prices").innerText;
   console.log(imageSrc, cartPrice);
-  addToCart(imageSrc, cartPrice);
+}
+
+function addToCartItem(imageSrc, cartPrice) {
+  let cartRow = document.createElement("div");
+  let;
 }
