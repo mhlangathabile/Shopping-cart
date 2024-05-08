@@ -17,4 +17,9 @@ for (let i = 0; i < addToCart.length; i++) {
 
 function addToCartButton(event) {
   let button = event.target;
+  let cartItem = button.parentElement.parentElement.parentElement;
+  let imageSrc = cartItem.getElementsByClassName("images")[0].src;
+  let cartPrice = cartItem.querySelector(".prices").innerText;
+  console.log(imageSrc, cartPrice);
+  addToCart(imageSrc, cartPrice);
 }
