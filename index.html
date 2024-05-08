@@ -127,13 +127,20 @@
     <h1 class="mt-5 heading text-center">CAKE CART</h1>
     <div class="container">
       <div class="row">
-        <div class="col-3" id="cartImage"></div>
-        <div class="col-3" id="cartPrice"></div>
-        <div class="col-3" id="cartQuantity"></div>
-        <div class="col-3" id="cartDelete"></div>
+        <div class="col-3" id="cartImage"><h2 class="heading">ITEM</h2></div>
+        <div class="col-3" id="cartPrice"><h2 class="heading">PRICE</h2></div>
+        <div class="col-3" id="cartQuantity">
+          <h2 class="heading">QUANTITY</h2>
+        </div>
+        <div class="col-3" id="cartDelete">
+          <h2 class="heading">DELETE</h2>
+          <button class="btn btn-dark cartDelete" id="cartDelete" type="button">
+            X
+          </button>
+        </div>
       </div>
     </div>
 
-    <script href="scripts.js"></script>
+    <script src="scripts.js"></script>
   </body>
 </html>
