@@ -127,7 +127,7 @@
     <h1 class="mt-5 heading text-center">CAKE CART</h1>
     <div class="container">
       <table class="table">
-        <thead>
+        <thead class="cartColumns">
           <tr>
             <th scope="col">ITEM</th>
             <th scope="col">PRICE</th>
@@ -135,10 +135,10 @@
             <th scope="col">DELETE</th>
           </tr>
         </thead>
-        <tbody>
-          <tr>
-            <td>Item 1</td>
-            <td>$10.00</td>
+        <tbody class="cartRows">
+          <tr class="cart">
+            <td><img src="${imageSrc}" alt="" /></td>
+            <td></td>
             <td>
               <input type="number" class="form-control" value="1" />
             </td>
@@ -146,7 +146,6 @@
               <button class="btn btn-dark cartDelete" type="button">X</button>
             </td>
           </tr>
-          <!-- Add more rows as needed -->
         </tbody>
       </table>
     </div>

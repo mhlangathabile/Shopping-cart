@@ -26,22 +26,13 @@ function addToCartButton(event) {
 
 function addToCartItem(imageSrc, cartPrice) {
   let cartContainer = document.createElement("div");
-  let cartItems = document.getElementsByClassName("cart-container")[0];
+  cartContainer.classList.add("cart");
+  let cartRow = document.getElementsByClassName("cartRows")[0];
   let cartContents = `
-   <div class="container">
-  <table class="table">
-    <thead>
-      <tr>
-        <th scope="col">ITEM</th>
-        <th scope="col">PRICE</th>
-        <th scope="col">QUANTITY</th>
-        <th scope="col">DELETE</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>Item 1</td>
-        <td>$10.00</td>
+  <tbody class="cartRows">
+      <tr class="cart">
+         <td><img src="${imageSrc}" alt="" width="200"  /></td>
+        <td>${cartPrice}</td>
         <td>
           <input type="number" class="form-control" value="1">
         </td>
@@ -51,12 +42,8 @@ function addToCartItem(imageSrc, cartPrice) {
           </button>
         </td>
       </tr>
-      <!-- Add more rows as needed -->
-    </tbody>
-  </table>
-</div>
-
+      </tbody>
   `;
   cartContainer.innerHTML = cartContents;
-  cartItems.append(cartContainer);
+  cartRow.append(cartContainer);
 }
