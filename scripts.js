@@ -25,29 +25,23 @@ function addToCartButton(event) {
 }
 
 function addToCartItem(imageSrc, cartPrice) {
-  let cartContainer = document.createElement("div");
-  cartContainer.classList.add("cartRows");
-  let cartRow = document.getElementsByClassName("cartRows")[0];
-  let cartContents = `
-  <div class="container">
-    <table class="table">
-      <tbody class="cartRows">
-          <tr class="cart">
-             <td><img src="${imageSrc}" alt="" width="200"  /></td>
-            <td>${cartPrice}</td>
-            <td>
-            <input type="number" class="form-control" value="1">
-           </td>
-         <td>
-          <button class="btn btn-dark cartDelete" type="button">
-            X
-          </button>
-         </td>
-          </tr>
-      </tbody>
-    </table>
-  </div>
+  // Create the cart row element
+  let cartRow = document.createElement("tr");
+  cartRow.classList.add("cart");
+
+  // Create the HTML content for the cart row
+  let cartRowContent = `
+    <td><img src="${imageSrc}" alt="" width="200" /></td>
+    <td>${cartPrice}</td>
+    <td><input type="number" class="form-control" value="1"></td>
+    <td><button class="btn btn-dark cartDelete" type="button">X</button></td>
   `;
-  cartContainer.innerHTML = cartContents;
-  cartRow.append(cartContainer);
+
+  cartRow.innerHTML = cartRowContent;
+
+  // Get the cartRows element
+  let cartRowsContainer = document.querySelector(".cartRows");
+
+  // Append the new cart row to the cartRows container
+  cartRowsContainer.appendChild(cartRow);
 }
