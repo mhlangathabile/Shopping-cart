@@ -28,21 +28,34 @@ function addToCartItem(imageSrc, cartPrice) {
   let cartContainer = document.createElement("div");
   let cartItems = document.getElementsByClassName("cart-container")[0];
   let cartContents = `
-   <div class="cart-container">
-      <div class="row cart">
-        <div class="col-3" id="cartImage"><h2 class="heading">ITEM</h2></div>
-        <div class="col-3" id="cartPrice"><h2 class="heading">PRICE</h2></div>
-        <div class="col-3" id="cartQuantity">
-          <h2 class="heading">QUANTITY</h2>
-        </div>
-        <div class="col-3" id="cartDelete">
-          <h2 class="heading">DELETE</h2>
-          <button class="btn btn-dark cartDelete" id="cartDelete" type="button">
+   <div class="container">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">ITEM</th>
+        <th scope="col">PRICE</th>
+        <th scope="col">QUANTITY</th>
+        <th scope="col">DELETE</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Item 1</td>
+        <td>$10.00</td>
+        <td>
+          <input type="number" class="form-control" value="1">
+        </td>
+        <td>
+          <button class="btn btn-dark cartDelete" type="button">
             X
           </button>
-        </div>
-      </div>
-    </div>
+        </td>
+      </tr>
+      <!-- Add more rows as needed -->
+    </tbody>
+  </table>
+</div>
+
   `;
   cartContainer.innerHTML = cartContents;
   cartItems.append(cartContainer);
