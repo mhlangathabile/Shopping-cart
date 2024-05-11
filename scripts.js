@@ -1,10 +1,10 @@
 // Delete Cart
-let deleteCartButtons = document.querySelectorAll(".cartDelete");
-deleteCartButtons.forEach((button) => {
-  button.addEventListener("click", function (event) {
-    let buttonClicked = event.target;
-    buttonClicked.parentElement.parentElement.remove();
-  });
+let cartRowsContainer = document.querySelector(".cartRows");
+
+cartRowsContainer.addEventListener("click", function (event) {
+  if (event.target.classList.contains("cartDelete")) {
+    event.target.parentElement.parentElement.remove();
+  }
 });
 
 // Add To Cart Button
@@ -23,8 +23,7 @@ function addToCartButton(event) {
 }
 
 function addToCartItem(imageSrc, cartPrice) {
-  let cartRowsContainer = document.querySelector(".cartRows");
-  let cartItems = cartRowsContainer.querySelectorAll(".images");
+  let cartItems = document.querySelectorAll(".cartImages img");
   for (let i = 0; i < cartItems.length; i++) {
     if (cartItems[i].src === imageSrc) {
       alert("This item is already added to the cart.");
@@ -38,13 +37,16 @@ function addToCartItem(imageSrc, cartPrice) {
 
   // Create the HTML content for the cart row
   let cartRowContent = `
-    <td><img src="${imageSrc}" alt="" width="200" /></td>
+    <td class="cartImages"><img src="${imageSrc}" alt="" width="200" /></td>
     <td>${cartPrice}</td>
     <td><input type="number" class="form-control" value="1"></td>
     <td><button class="btn btn-dark cartDelete" type="button">X</button></td>
   `;
 
   cartRow.innerHTML = cartRowContent;
+
+  // Get the cartRows element
+  let cartRowsContainer = document.querySelector(".cartRows");
 
   // Append the new cart row to the cartRows container
   cartRowsContainer.appendChild(cartRow);
