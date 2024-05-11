@@ -125,29 +125,36 @@
       <table class="table">
         <thead class="cartColumns">
           <tr>
-            <th scope="col">ITEM</th>
-            <th scope="col">PRICE</th>
-            <th scope="col">QUANTITY</th>
-            <th scope="col">DELETE</th>
+            <th scope="col" class="heading">ITEM</th>
+            <th scope="col" class="heading">PRICE</th>
+            <th scope="col" class="heading">QUANTITY</th>
+            <th scope="col" class="heading"></th>
           </tr>
         </thead>
         <tbody class="cartRows">
           <tr class="cart">
-            <td class="cartImages"><img src="${imageSrc}" alt="" /></td>
-            <td></td>
+            <td class="cartImages">
+              <img src="${imageSrc}" alt="Bento Cake" hidden />
+            </td>
+            <td class="prices"></td>
             <td>
-              <input type="number" class="form-control" value="1" hidden />
+              <input
+                type="number"
+                class="form-control cartQuantity"
+                value="1"
+              />
             </td>
             <td>
               <button class="btn btn-light cartDelete" type="button"></button>
             </td>
           </tr>
+          <!-- Add more cart items here -->
         </tbody>
       </table>
     </div>
 
     <div class="cartTotal">
-      <h3>TOTAL <span>R</span></h3>
+      <h3 class="heading cartTotal">TOTAL:</h3>
     </div>
 
     <script src="scripts.js"></script>

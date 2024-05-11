@@ -18,7 +18,6 @@ function addToCartButton(event) {
   let cartItem = button.parentElement.parentElement;
   let imageSrc = cartItem.querySelector(".images").src;
   let cartPrice = cartItem.querySelector(".prices").innerText;
-  console.log(imageSrc, cartPrice);
   addToCartItem(imageSrc, cartPrice);
 }
 
@@ -38,8 +37,8 @@ function addToCartItem(imageSrc, cartPrice) {
   // Create the HTML content for the cart row
   let cartRowContent = `
     <td class="cartImages"><img src="${imageSrc}" alt="" width="200" /></td>
-    <td>${cartPrice}</td>
-    <td><input type="number" class="form-control" value="1"></td>
+    <td class="prices">${cartPrice}</td>
+    <td><input type="number" class="form-control cartQuantity" value="1"></td>
     <td><button class="btn btn-dark cartDelete" type="button">X</button></td>
   `;
 
@@ -51,3 +50,30 @@ function addToCartItem(imageSrc, cartPrice) {
   // Append the new cart row to the cartRows container
   cartRowsContainer.appendChild(cartRow);
 }
+
+// Update Cart Total
+function cartTotal() {
+  let cartContainer = document.querySelector(".cartRows");
+  let cartRows = cartContainer.querySelectorAll(".cart");
+  let total = 0;
+  for (let i = 0; i < cartRows.length; i++) {
+    let rowItems = cartRows[i];
+    let priceElement = rowItems.querySelector(".prices")[0];
+    let quantityElement = rowItems.querySelector("cartQuantity"[0]);
+    let price = parseFloat(priceElement.textContent.replace("R", ""));
+    let quantity = quantityElement.value;
+    total = total + price * quantity;
+  }
+  document.querySelector(".cartTotal").innerHTML = total;
+}
+
+//   cartRows.forEach((cartRow) => {
+//     let priceElement = cartRow.querySelector(".prices");
+//     let quantityElement = cartRow.querySelector(".cartQuantity");
+//     let price = parseFloat(priceElement.textContent.replace("R ", ""));
+//     let quantity = parseInt(quantityElement.value);
+//     total += price * quantity;
+//   });
+//   document.querySelector(".cartTotal").innerHTML =
+//     "TOTAL: R " + total.toFixed(2);
+// }

@@ -46,3 +46,13 @@ a {
 .links {
   padding: 20px;
 }
+
+th {
+  font-size: 30px;
+}
+
+.form-control {
+  width: 70px;
+  display: flex;
+  justify-content: center;
+}
