@@ -1,30 +1,37 @@
 // Delete Cart
-let deleteCartButton = document.querySelectorAll(".cartDelete");
-for (let i = 0; i < deleteCartButton.length; i++) {
-  let button = deleteCartButton[i];
+let deleteCartButtons = document.querySelectorAll(".cartDelete");
+deleteCartButtons.forEach((button) => {
   button.addEventListener("click", function (event) {
     let buttonClicked = event.target;
     buttonClicked.parentElement.parentElement.remove();
   });
-}
+});
 
 // Add To Cart Button
-let addToCart = document.querySelectorAll("#addToCart");
-for (let i = 0; i < addToCart.length; i++) {
-  let button = addToCart[i];
+let addToCartButtons = document.querySelectorAll(".addToCart");
+addToCartButtons.forEach((button) => {
   button.addEventListener("click", addToCartButton);
-}
+});
 
 function addToCartButton(event) {
   let button = event.target;
-  let cartItem = button.parentElement.parentElement.parentElement;
-  let imageSrc = cartItem.getElementsByClassName("images")[0].src;
+  let cartItem = button.parentElement.parentElement;
+  let imageSrc = cartItem.querySelector(".images").src;
   let cartPrice = cartItem.querySelector(".prices").innerText;
   console.log(imageSrc, cartPrice);
   addToCartItem(imageSrc, cartPrice);
 }
 
 function addToCartItem(imageSrc, cartPrice) {
+  let cartRowsContainer = document.querySelector(".cartRows");
+  let cartItems = cartRowsContainer.querySelectorAll(".images");
+  for (let i = 0; i < cartItems.length; i++) {
+    if (cartItems[i].src === imageSrc) {
+      alert("This item is already added to the cart.");
+      return;
+    }
+  }
+
   // Create the cart row element
   let cartRow = document.createElement("tr");
   cartRow.classList.add("cart");
@@ -38,9 +45,6 @@ function addToCartItem(imageSrc, cartPrice) {
   `;
 
   cartRow.innerHTML = cartRowContent;
-
-  // Get the cartRows element
-  let cartRowsContainer = document.querySelector(".cartRows");
 
   // Append the new cart row to the cartRows container
   cartRowsContainer.appendChild(cartRow);
