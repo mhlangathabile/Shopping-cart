@@ -4,6 +4,7 @@ let cartRowsContainer = document.querySelector(".cartRows");
 cartRowsContainer.addEventListener("click", function (event) {
   if (event.target.classList.contains("cartDelete")) {
     event.target.parentElement.parentElement.remove();
+    updateCartTotal(); // Call updateCartTotal() to recalculate the total
   }
 });
 
@@ -51,29 +52,36 @@ function addToCartItem(imageSrc, cartPrice) {
   cartRowsContainer.appendChild(cartRow);
 }
 
-// Update Cart Total
-function cartTotal() {
-  let cartContainer = document.querySelector(".cartRows");
-  let cartRows = cartContainer.querySelectorAll(".cart");
+function updateCartTotal() {
+  // Select all elements with class 'prices'
+  const prices = document.querySelectorAll(".prices");
+  // Select all elements with class 'cartQuantity'
+  const quantities = document.querySelectorAll(".cartQuantity");
+
   let total = 0;
-  for (let i = 0; i < cartRows.length; i++) {
-    let rowItems = cartRows[i];
-    let priceElement = rowItems.querySelector(".prices")[0];
-    let quantityElement = rowItems.querySelector("cartQuantity"[0]);
-    let price = parseFloat(priceElement.textContent.replace("R", ""));
-    let quantity = quantityElement.value;
-    total = total + price * quantity;
+
+  // Determine the shorter array length
+  const minLength = Math.min(prices.length, quantities.length);
+
+  // Iterate over each item in the cart
+  for (let i = 0; i < minLength; i++) {
+    // Get the price and quantity of the current item
+    const price = parseFloat(prices[i].textContent.replace("R ", "").trim());
+    const quantity = parseInt(quantities[i].value);
+
+    // Update the total by adding the price multiplied by the quantity
+    total += price * quantity;
   }
-  document.querySelector(".cartTotal").innerHTML = total;
+
+  // Select the element with class 'cartTotalAmount' and update its innerHTML
+  document.querySelector(".cartTotalAmount").textContent =
+    "R " + total.toFixed(2);
 }
 
-//   cartRows.forEach((cartRow) => {
-//     let priceElement = cartRow.querySelector(".prices");
-//     let quantityElement = cartRow.querySelector(".cartQuantity");
-//     let price = parseFloat(priceElement.textContent.replace("R ", ""));
-//     let quantity = parseInt(quantityElement.value);
-//     total += price * quantity;
-//   });
-//   document.querySelector(".cartTotal").innerHTML =
-//     "TOTAL: R " + total.toFixed(2);
-// }
+// Add an event listener to each cartQuantity input to recalculate the total whenever the quantity changes
+document.addEventListener("DOMContentLoaded", function () {
+  const quantityInputs = document.querySelectorAll(".cartQuantity");
+  quantityInputs.forEach((input) => {
+    input.addEventListener("change", updateCartTotal);
+  });
+});
