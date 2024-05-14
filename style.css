@@ -59,6 +59,11 @@ th {
   justify-content: center;
 }
 
+.cartTotal {
+  display: flex;
+  justify-content: right;
+}
+
 /* Additional styles for responsiveness */
 .navbar-brand {
   font-size: 40px;
