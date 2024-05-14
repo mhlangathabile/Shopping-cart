@@ -66,7 +66,6 @@ function addToCartItem(imageSrc, cartPrice) {
   let cartRow = document.createElement("tr");
   cartRow.classList.add("cart");
 
-  // Create the HTML content for the cart row
   let cartRowContent = `
     <td class="cartImages"><img src="${imageSrc}" alt="" width="200" /></td>
     <td class="prices">${cartPrice}</td>
@@ -76,7 +75,6 @@ function addToCartItem(imageSrc, cartPrice) {
 
   cartRow.innerHTML = cartRowContent;
 
-  // Get the cartRows element
   let cartRowsContainer = document.querySelector(".cartRows");
 
   // Append the new cart row to the cartRows container
