@@ -3,20 +3,24 @@ let total = 0; // Declare total as a global variable
 function updateCartTotal() {
   total = 0;
 
-  const prices = document.querySelectorAll(".prices");
-  const quantities = document.querySelectorAll(".cartQuantity");
+  // Select all cart rows
+  const cartRows = document.querySelectorAll(".cartRows tr");
 
-  // Determine the shorter array length
-  const minLength = Math.min(prices.length, quantities.length);
+  cartRows.forEach((row) => {
+    // Get the price and quantity of the current item
+    const priceElement = row.querySelector(".prices");
+    const quantityElement = row.querySelector(".cartQuantity");
 
-  // Iterate over each item in the cart
-  for (let i = 0; i < minLength; i++) {
-    const price = parseFloat(prices[i].textContent.replace("R ", "").trim());
-    const quantity = parseInt(quantities[i].value);
+    if (priceElement && quantityElement) {
+      const price = parseFloat(
+        priceElement.textContent.replace("R ", "").trim()
+      );
+      const quantity = parseInt(quantityElement.value);
 
-    // Update the total by adding the price multiplied by the quantity
-    total += price * quantity;
-  }
+      // Update the total by adding the price multiplied by the quantity
+      total += price * quantity;
+    }
+  });
 
   // Select the element with class 'cartTotalAmount' and update its innerHTML
   document.querySelector(".cartTotalAmount").textContent =
@@ -82,6 +86,12 @@ function addToCartItem(imageSrc, cartPrice) {
   cartRow
     .querySelector(".cartQuantity")
     .addEventListener("change", updateCartTotal);
+
+  // Attach event listener to the delete button
+  cartRow.querySelector(".cartDelete").addEventListener("click", function () {
+    cartRow.remove();
+    updateCartTotal(); // Recalculate total after removing an item
+  });
 }
 
 // Delete Cart
