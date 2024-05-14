@@ -53,9 +53,7 @@ function addToCartItem(imageSrc, cartPrice) {
 }
 
 function updateCartTotal() {
-  // Select all elements with class 'prices'
   const prices = document.querySelectorAll(".prices");
-  // Select all elements with class 'cartQuantity'
   const quantities = document.querySelectorAll(".cartQuantity");
 
   let total = 0; // Initialize total here
