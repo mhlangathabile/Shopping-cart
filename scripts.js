@@ -58,9 +58,6 @@ function updateCartTotal() {
   // Select all elements with class 'cartQuantity'
   const quantities = document.querySelectorAll(".cartQuantity");
 
-  console.log("Prices:", prices);
-  console.log("Quantities:", quantities);
-
   let total = 0;
 
   // Determine the shorter array length
@@ -72,13 +69,9 @@ function updateCartTotal() {
     const price = parseFloat(prices[i].textContent.replace("R ", "").trim());
     const quantity = parseInt(quantities[i].value);
 
-    console.log(`Item ${i + 1}: Price = ${price}, Quantity = ${quantity}`);
-
     // Update the total by adding the price multiplied by the quantity
     total += price * quantity;
   }
-
-  console.log("Total before updating the DOM:", total);
 
   // Select the element with class 'cartTotalAmount' and update its innerHTML
   document.querySelector(".cartTotalAmount").textContent =
