@@ -23,7 +23,7 @@
     <nav class="navbar bg-dark border-bottom border-body" data-bs-theme="light">
       <div class="container-fluid">
         <a class="navbar-brand companyName">Blissful Bento Bakes</a>
-        <form class="d-flex" role="search">
+        <form class="d-flex" role="search" id="shoppingCart">
           <input
             class="form-control me-2"
             type="search"
@@ -132,23 +132,7 @@
           </tr>
         </thead>
         <tbody class="cartRows">
-          <tr class="cart">
-            <td class="cartImages">
-              <img src="${imageSrc}" alt="Bento Cake" hidden />
-            </td>
-            <td class="prices"></td>
-            <td>
-              <input
-                type="number"
-                class="form-control cartQuantity"
-                value="1"
-              />
-            </td>
-            <td>
-              <button class="btn btn-light cartDelete" type="button"></button>
-            </td>
-          </tr>
-          <!-- Add more cart items here -->
+          <!-- Cart rows will be dynamically added here -->
         </tbody>
       </table>
     </div>

@@ -58,6 +58,9 @@ function updateCartTotal() {
   // Select all elements with class 'cartQuantity'
   const quantities = document.querySelectorAll(".cartQuantity");
 
+  console.log("Prices:", prices);
+  console.log("Quantities:", quantities);
+
   let total = 0;
 
   // Determine the shorter array length
@@ -69,17 +72,24 @@ function updateCartTotal() {
     const price = parseFloat(prices[i].textContent.replace("R ", "").trim());
     const quantity = parseInt(quantities[i].value);
 
+    console.log(`Item ${i + 1}: Price = ${price}, Quantity = ${quantity}`);
+
     // Update the total by adding the price multiplied by the quantity
     total += price * quantity;
   }
+
+  console.log("Total before updating the DOM:", total);
 
   // Select the element with class 'cartTotalAmount' and update its innerHTML
   document.querySelector(".cartTotalAmount").textContent =
     "R " + total.toFixed(2);
 }
 
-// Add an event listener to each cartQuantity input to recalculate the total whenever the quantity changes
 document.addEventListener("DOMContentLoaded", function () {
+  // Update the cart total on page load
+  updateCartTotal();
+
+  // Attach event listeners to quantity input fields
   const quantityInputs = document.querySelectorAll(".cartQuantity");
   quantityInputs.forEach((input) => {
     input.addEventListener("change", updateCartTotal);
