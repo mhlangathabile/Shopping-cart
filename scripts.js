@@ -58,7 +58,7 @@ function updateCartTotal() {
   // Select all elements with class 'cartQuantity'
   const quantities = document.querySelectorAll(".cartQuantity");
 
-  let total = 0;
+  let total = 0; // Initialize total here
 
   // Determine the shorter array length
   const minLength = Math.min(prices.length, quantities.length);
